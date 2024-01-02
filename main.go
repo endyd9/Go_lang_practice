@@ -3,11 +3,19 @@ package main
 import (
 	"fmt"
 
-	"github.com/endyd9/learngo/accounts/accounts"
+	mydict "github.com/endyd9/learngo/accounts/dict"
 )
 
 func main() {
-	account := accounts.NewAccount("dooyong")
-	account.Deposit(100)
-	fmt.Println(account)
+	dictionary := mydict.Dictionary{}
+	baseWord := "hello"
+	dictionary.Add(baseWord, "first")
+	dictionary.Search(baseWord)
+	dictionary.Delete(baseWord)
+	word, err := dictionary.Search(baseWord)
+	if err != nil {
+		fmt.Println(err)
+	}
+	fmt.Println(word)
+
 }
